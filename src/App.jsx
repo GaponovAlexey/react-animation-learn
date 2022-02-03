@@ -1,17 +1,25 @@
-import { css, keyframes } from '@emotion/css'
+// import { css,jsx, keyframes } from '@emotion/react'
+import {  css, Global, ClassNames,keyframes } from '@emotion/react'
 import './App.css'
 import logo from './logo.svg'
-import { bounce, bounceOut } from 'react-animations'
+import { bounceIn, bounceOut } from 'react-animations'
 
 function App() {
-  const bounceAnimation = keyframes`${bounce}${bounceOut}`;
+  const bounceAnimation = keyframes`${bounceIn}${bounceOut}`
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
+        <img
+          src={logo}
+          className='App-logo'
+          css={css`
+            animation: ${bounceAnimation} 1s ease infinite;
+          `}
+          alt='logo'
+        />
         <div
-          className={css`
+          css={css`
             animation: ${bounceAnimation} 1s ease infinite;
           `}
         >
